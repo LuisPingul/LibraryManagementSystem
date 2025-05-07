@@ -11,7 +11,7 @@ public class Main {
 
         boolean libraryManagement = true;
         while (libraryManagement) {
-            try {
+
                 System.out.println("1. Register Patron");
                 System.out.println("2. Add Book");
                 System.out.println("3. Borrow book");
@@ -26,6 +26,7 @@ public class Main {
 
                 if (choice > 7) {
                     System.out.println("Invalid! Choices are only between 1-7!");
+                    System.out.println();
                 }
 
                 switch (choice) {
@@ -102,18 +103,13 @@ public class Main {
                         library.patronsList();
                         System.out.println();
                         break;
-                    default:
+                    case 7:
                         System.out.println("Exiting......");
                         libraryManagement = false;
+                        break;
                 }
 
-
-            } catch (NumberFormatException e) {
-                System.out.println("Invalid input. Please enter a number between 1 and 7.");
-            } catch (Exception e) {
-                System.out.println("An unexpected error occurred: " + e.getMessage());
-            }
-
         }
+        userInput.close();
     }
 }
