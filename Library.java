@@ -11,12 +11,12 @@ public class Library {
         patrons= new ArrayList<>();
     }
 
-    public void registerPatron(String name){
-        patrons.add(new Patron(name));
+    public void registerPatron(String name, int idNum){
+        patrons.add(new Patron(name, idNum));
     }
 
-    public void addBook (String title, String author, int year) {
-        books.add(new Book(title, author, year));
+    public void addBook (String title, String author, int year, String isbn) {
+        books.add(new Book(title, author, year, isbn));
     }
 
     public void patronsList(){
@@ -25,7 +25,8 @@ public class Library {
         } else {
             System.out.println("Registered Patrons:");
             for (int index = 0; index < patrons.size(); index++) {
-                System.out.println(patrons.get(index).getName());
+                System.out.println(patrons.get(index).getName()+ " (" + patrons.get(index).getIdNum()
+                +")");
             }
         }
     }
@@ -37,7 +38,7 @@ public class Library {
         } else {
             System.out.println("Available Books:");
             for (int index = 0; index < books.size(); index++) {
-                System.out.println(books.get(index).getTitle() + ", " + books.get(index).getAuthor() + "(Author), " + books.get(index).getYear() + "(year published)");
+                System.out.println(books.get(index).getTitle() + ", " + books.get(index).getAuthor() + "(Author), " + books.get(index).getYear() + "(year published)" + " - " + books.get(index).getStatus());
             }
         }
 
