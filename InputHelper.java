@@ -1,4 +1,4 @@
-import javax.print.attribute.IntegerSyntax;
+
 import java.util.Scanner;
 
 public class InputHelper {
@@ -13,7 +13,7 @@ public class InputHelper {
             try {
                 return Integer.parseInt(input);
             } catch (NumberFormatException e) {
-                System.out.println("Invalid Input! Please Enter a Valid Number: ");
+                System.out.println("Invalid Input! Please Enter a Valid Number(NO SYMBOLS, NO LETTERS, MUST NOT BE EMPTY): ");
             }
         }
     }
@@ -26,7 +26,7 @@ public class InputHelper {
             if (input.isEmpty()) {
                 System.out.println("Input cannot be empty!");
             } else if (!input.matches("[a-zA-Z ]+")) {
-                System.out.println("Invalid Input! Numbers are not allowed.");
+                System.out.println("Invalid Input! Numbers & Symbols are not allowed.");
             } else {
                 return input;
             }
@@ -60,7 +60,7 @@ public class InputHelper {
                     System.out.println("Invalid Choice! Please enter number between " + min + " and " + max+ ".");
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Invalid input! Please Enter a number.");
+                System.out.println("Invalid input! Please Enter a number between 1 - 8.");
             }
         }
     }
@@ -72,7 +72,7 @@ public class InputHelper {
             System.out.println(prompt);
             String input = scanner.nextLine().trim();
             if (!input.matches("\\d{13}")) {
-                System.out.println("Invalid ISBN! It must be exactly 13 digits.");
+                System.out.println("Invalid ISBN! It must be exactly 13 digits.(MUST NOT BE EMPTY, NO LETTERS & NO SYMBOLS)");
             } else {
                 return input;
             }

@@ -20,42 +20,44 @@ public class Main {
             System.out.println("7. View Patron Transaction History");
             System.out.println("8. Quit");
             System.out.println("------------------------------------------");
-                //System.out.print("Choose a number: ");
+            //System.out.print("Choose a number: ");
 
                 int choice = InputHelper.readMenuChoice(1, 8);
                 System.out.println();
 
-                if (choice < 1 || choice > 8) {
+                /*if (choice < 1 || choice > 8) {
                     System.out.println("Invalid! Choices are only between 1-7!");
                     System.out.println();
-                }
+                } */
 
 
                 switch (choice) {
                     case 1: // patron registration
                         System.out.println();
-                        //System.out.print("Enter patron name: ");
                         String patronName = InputHelper.readName("Enter Patron Name: ");
-                        //System.out.print("Enter ID number: ");
-                        int idNum = InputHelper.readInt("Enter ID number: ");
-                        library.registerPatron(patronName, idNum);
-                        System.out.println("Patron Successfully Registered");
+                        if (library.isPatronRegistered(patronName)) {
+                           System.out.println("This patron is already registered.");
+                        } else {
+                            int idNum = InputHelper.readInt("Enter ID number: ");
+                            library.registerPatron(patronName, idNum);
+                        }
+
                         System.out.println();
                         break;
 
                     case 2: //add book for library system
                         System.out.println();
-                        //System.out.print("Enter Book Title: ");
                         String bookTitle = InputHelper.readString("Enter Book Title: ");
-                        //System.out.print("Enter Book Author: ");
-                        String author = InputHelper.readName("Enter Book Author: ");
-                        //System.out.print("Enter Year Published: ");
-                        int yearPublished = InputHelper.readInt("Enter Year Published: ");
+                        if (library.isBookAlreadyAdded(bookTitle)) {
+                            System.out.println("This book already exists in the library.");
+                        } else {
+                            String author = InputHelper.readName("Enter Book Author: ");
+                            int yearPublished = InputHelper.readInt("Enter Year Published: ");
+                            String isbn = InputHelper.readISBN("Enter ISBN (must be 13 - digits only)");
+                            library.addBook(bookTitle, author, yearPublished, isbn);
+                            System.out.println("Book Successfully Added");
+                        }
 
-                        String isbn = InputHelper.readISBN("Enter ISBN (must be 13 - digits only): ");
-
-                        library.addBook(bookTitle, author, yearPublished, isbn);
-                        System.out.println("Book Successfully Added");
                         System.out.println();
                         break;
 

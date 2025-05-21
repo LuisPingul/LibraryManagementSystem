@@ -12,8 +12,25 @@ public class Library {
     }
 
     public void registerPatron(String name, int idNum){
+
+
+        for (int i = 0; i < patrons.size(); i++) {
+            Patron p = patrons.get(i);
+            if (p.getName().equalsIgnoreCase(name)) {
+                System.out.println("Patron with the same name already exists!");
+                return;
+            }
+
+            if (p.getIdNum() == idNum) {
+                System.out.println("ID number already registered to another patron!");
+                return;
+            }
+
+        }
         patrons.add(new Patron(name, idNum));
+        System.out.println("Patron Successfully Registered");
     }
+
 
     public void addBook (String title, String author, int year, String isbn) {
         books.add(new Book(title, author, year, isbn));
@@ -63,5 +80,20 @@ public class Library {
         }
         return null;
     }
+
+
+    public boolean isPatronRegistered(String name) {
+        for (int i = 0; i < patrons.size(); i++) {
+            if (patrons.get(i).getName().equalsIgnoreCase(name)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isBookAlreadyAdded(String title) {
+        return findBook(title) != null;
+    }
+
 
 }
