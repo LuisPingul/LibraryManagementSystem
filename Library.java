@@ -42,8 +42,7 @@ public class Library {
         } else {
             System.out.println("Registered Patrons:");
             for (int index = 0; index < patrons.size(); index++) {
-                System.out.println(patrons.get(index).getName()+ " (" + patrons.get(index).getIdNum()
-                +")");
+                System.out.println(patrons.get(index).getName()+ " (" + patrons.get(index).getIdNum() +")");
             }
         }
     }
@@ -55,7 +54,7 @@ public class Library {
         } else {
             System.out.println("Available Books:");
             for (int index = 0; index < books.size(); index++) {
-                System.out.println(books.get(index).getTitle() + ", " + books.get(index).getAuthor() + "(Author), " + books.get(index).getYear() + "(year published)" + " - " + books.get(index).getStatus());
+                System.out.println(books.get(index).getTitle() + ", " + books.get(index).getAuthor() + "(Author), " + books.get(index).getYear() + "(year published), " + books.get(index).getIsbn() + " (ISBN)" +  " - "  + books.get(index).getStatus());
             }
         }
 

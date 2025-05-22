@@ -1,4 +1,4 @@
-
+import javax.print.attribute.IntegerSyntax;
 import java.util.Scanner;
 
 public class InputHelper {
